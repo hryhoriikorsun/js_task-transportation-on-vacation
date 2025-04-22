@@ -6,19 +6,21 @@
 function calculateRentalCost(days) {
   let counter = 0;
   const PRICE_ONE_DAY = 40;
-  const DISCAUNT_3_DAYS = 20;
-  const DISCAUNT_7_DAYS = 50;
+  const SHORT_TERM = 3;
+  const SHORT_TERM_DISCAUNT = 20;
+  const LONG_TERM = 7;
+  const LONG_TERM_DISCAUNT = 50;
 
   for (let i = 0; i < days; i++) {
     counter += PRICE_ONE_DAY;
   }
 
-  if (days >= 3) {
-    counter = counter - DISCAUNT_3_DAYS;
+  if (days >= SHORT_TERM) {
+    counter = counter - SHORT_TERM_DISCAUNT;
   }
 
-  if (days >= 7) {
-    counter = counter - (DISCAUNT_7_DAYS - DISCAUNT_3_DAYS);
+  if (days >= LONG_TERM) {
+    counter = counter - (LONG_TERM_DISCAUNT - SHORT_TERM_DISCAUNT);
   }
 
   return counter;
